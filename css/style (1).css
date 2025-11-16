@@ -51,35 +51,38 @@ body{
     width: 100%;
     font-size: 16px;
     line-height: 1.5;
-    /* overflow: hidden; */
     background-color: var(--bg-black-50);
     text-transform: capitalize;
-    /* overflow-y: hidden; */
     scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: var(--skin-color) var(--bg-scroll);
+
+    /* REMOVE ALL SCROLLBARS */
+    overflow-y: auto;
+    overflow-x: hidden;  /* hide horizontal overflow if any */
+    -webkit-overflow-scrolling: touch;
 }
 
+/* Webkit scrollbar (Chrome, Edge, Safari) - disabled */
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%; /* Remove scrolling on HTML too */
+}
+
+/* You can keep this but it won't show since scrollbar is hidden */
 body::-webkit-scrollbar-track {
     background: var(--bg-scroll);
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--skin-color) ;
+    background-color: var(--skin-color);
     border-radius: 6px;
     border: 3px solid var(--bg-scroll);
 }
 
 body.stop-scrolling{
     overflow-y: hidden;
-}
-
-body::-webkit-scrollbar {
-    width: 11px;
-}
-
-html {
-    scroll-behavior: smooth;
-    --scrollbarBG: transparent;
 }
 
 *{
